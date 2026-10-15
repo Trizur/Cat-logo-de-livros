@@ -20,3 +20,30 @@
         font-size: 40px;
         text-align: center;
       }
+
+      h2{
+        font-size: 26px;
+        color: black;
+        text-align: center;
+      }
+
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction:column;  /* Alinha os blocos um embaixo do outro */
+  justify-content:center; /* Centraliza verticalmente */
+  align-items: center;     /* Centraliza horizontalmente */
+  min-height: 10vh;       /* Garante que o fundo use toda a altura da tela */
+  background-color: #f4f7f6; 
+  
+}
+
+.menu {
+  font-size: 17px;
+  display: flex;         /* Ativa o modo Flexbox */
+  justify-content: center; /* Centraliza os links horizontalmente */
+  gap:25px;             /* Cria um espaço de 15px entre os links */
+  margin-bottom: 30px;   /* Afasta os links do formulário abaixo */
+}
