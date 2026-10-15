@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excluir livro</title>
+</head>
+<body>
+
+    <style></style>
+    <script>
+    const API = "https://livros.acilab.com.br/api/livros";
+
+    function excluirLivro(id) {
+        fetch(`${API}/${id}`, {
+            method: "DELETE"
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erro ao excluir: ${response.status}`);
+            }
+            // Algumas APIs retornam JSON no DELETE, outras apenas status 204 (sem corpo)
+            return response.text().then(text => text ? JSON.parse(text) : {});
+        })
+        .then(data => {
+            console.log("Livro excluído com sucesso:", data);
+        })
+        .catch(error => {
+            console.error("Erro na requisição:", error);
+        });
+
+}</script>
+</body>
+</html>

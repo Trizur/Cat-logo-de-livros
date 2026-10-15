@@ -1,0 +1,27 @@
+        .container {
+            display: flex;
+            margin-top: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .coluna {
+            padding: 10px;
+            border: 1px solid #ccc;
+            min-width: 200px;
+        }
+
+        h3{
+            margin-top: 0;
+            color: purple;
+        }
+
+        h1{
+            color: purple;
+        font-size: 40px;
+        text-align: center;
+      }
+
+      nav {
+        text-align: center;
+        font-size: 20px;
+      }
