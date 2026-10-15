@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar um livro</title>
+</head>
+<body>
+    <style>
+    </style>
+
+    <h2>Cadastre um novo livro</h2>
+
+    <label for="titulo">Título:</label><br>
+     <textarea id="titulo" name="titulo" rows="1" cols="33" placeholder="Escreva o titulo do livro..."></textarea><br>
+
+    <label for="autor">Nome do autor:</label><br>
+    <textarea id="autor" name="autor" rows="1" cols="33" placeholder="Escreva o nome do autor..."></textarea><br>
+     <button id="btnEnviar" name="button">Enviar</button>
+
+
+       <script>
+    const API = "https://livros.acilab.com.br/api/livros";
+
+    function adicionarLivro(titulo, autor) {
+        fetch(API, {
+            method: "POST", 
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({titulo, autor})
+        })
+        .then(response=> response.json())
+        .then(data => {
+            console.log(data)
+        })
+    }
+
+    //Listerns
+  document.getElementById("btnEnviar").addEventListener("click", () => {
+            const txtTitulo = document.getElementById("titulo").value.trim();
+            const txtAutor = document.getElementById("autor").value.trim();
+
+            // Validação para garantir que os campos não estão vazios
+            if (txtTitulo === "" || txtAutor === "") {
+                alert("Por favor, preencha todos os campos.");
+                return;
+            }
+
+            adicionarLivro(txtTitulo, txtAutor);
+        });
+   
+    </script> 
+</body>
+</html>
