@@ -11,13 +11,11 @@
 <body>
 
     <h1>Catálogo de livros</h1>
-    <nav>
-        <ul>
-            <li><a href="POST.html">Cadastrar livro</a></li>
-            <li><a href="GET.html">Listar livros</a></li>
+    
+            <a href="POST.html">Cadastrar livro</a>
+            <a href="GET.html">Listar livros</a>
 
-        </ul>
-    </nav>
+        
     <button id="btn"> Listar livros </button>
 
 
@@ -83,9 +81,12 @@
 
             //editar livro
             function Editarlivros(id, titulo, autor) {
-                const novotitulo = titulo//input("Novo titulo", titulo)
-                const novoautor = autor//input("Novo autor", autor)
-                if (titulo && autor) {
+                // Abre caixas de texto pré-preenchidas com os valores atuais
+                const novotitulo = prompt("Digite o novo título:", titulo);
+                const novoautor = prompt("Digite o novo autor:", autor);
+
+                // Verifica se o usuário preencheu e não cancelou
+                if (novotitulo && novoautor) {
                     fetch(`${API}/${id}`, {
                         method: "PUT",
                         headers: { "Content-Type": "application/json" },
@@ -97,16 +98,14 @@
                     })
                         .then(response => {
                             if (response.ok) {
-                                listarLivros()
+                                listarLivros(); // Atualiza a lista na tela
                             } else {
-                                alert("Erro ao editar o livro")
+                                alert("Erro ao editar o livro");
                             }
                         })
-                        .catch(error => console.error("Erro na edição", error))
+                        .catch(error => console.error("Erro na edição", error));
                 }
             }
-
-            btn.addEventListener("click", listarLivros)
 
         </script>
 </body>
